@@ -20,36 +20,28 @@ const UserSchema = new Schema({
         unique: true,
         match: [/.+@.+\..+/]
     },
-    thoughts: [
-        {
-        type: Schema.Types.ObjectId,
-        ref: 'Thought'
-    }
-    ],
+    //thoughts: [
+    //     {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Thought'
+    // }
+    // ],
     friends: [
     {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }],
-    // comments: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'Comment'
-    //     }
-    // ]
+    }]
 }, {
     toJSON: {
         virtuals: true,
-        getters: true
+        //getters: true
     },
     // the id false below prevents virtuals from making a duplicate _id as `id`
     id: false
 });
 
-UserSchema.virtual('friendCount').get(function () {
-    return this.comments.reduce(
-        (total, friends) => total + friends.length + 1, 0
-    );
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
 });
 
 const User = model('User', UserSchema);

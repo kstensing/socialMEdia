@@ -1,3 +1,5 @@
+const { User } = require('../models');
+
 const userController = {
     // get all pizzas
     getAllUsers(req, res) {
@@ -81,3 +83,5 @@ const userController = {
             .catch(err => res.status(400).json(err));
     }
 }
+
+module.exports = userController;
