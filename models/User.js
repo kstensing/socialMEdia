@@ -1,10 +1,11 @@
 const {
     Schema,
-    model
+    model,
+    Types
 } = require('mongoose');
-const {
-    stringify
-} = require('querystring');
+// const {
+//     stringify
+// } = require('querystring');
 //const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema({
@@ -20,14 +21,11 @@ const UserSchema = new Schema({
         unique: true,
         match: [/.+@.+\..+/]
     },
-    thoughts: [
-        {
+    thoughts: {
         type: Schema.Types.ObjectId,
         ref: 'Thought'
-    }
-    ],
-    friends: [
-    {
+    },
+    friends: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
     }]
@@ -40,7 +38,7 @@ const UserSchema = new Schema({
     id: false
 });
 
-UserSchema.virtual('friendCount').get(function() {
+UserSchema.virtual('friendCount').get(function () {
     return this.friends.length;
 });
 

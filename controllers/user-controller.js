@@ -1,9 +1,9 @@
 const {
-    User
+    User,
+    Thought
 } = require('../models');
 
 const userController = {
-    // get all pizzas
     getAllUsers(req, res) {
         User.find({})
             .populate({
@@ -57,7 +57,7 @@ const userController = {
         params,
         body
     }, res) {
-        Comment.findOneAndUpdate({
+        User.findOneAndUpdate({
                 _id: params.userId
             }, {
                 $push: {
