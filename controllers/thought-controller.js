@@ -137,9 +137,7 @@ const thoughtController = {
                 _id: params.thoughtId
             }, {
                 $pull: {
-                    reactions: {
-                        reactionId: params.reactionId
-                    }
+                    reactions: params.reactionId
                 }
             }, {
                 new: true
