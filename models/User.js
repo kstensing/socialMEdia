@@ -6,7 +6,7 @@ const {
 // const {
 //     stringify
 // } = require('querystring');
-//const dateFormat = require('../utils/dateFormat');
+const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema({
     username: {
@@ -31,7 +31,6 @@ const UserSchema = new Schema({
         virtuals: true,
         getters: true
     },
-    // the id false below prevents virtuals from making a duplicate _id as `id`
     id: false
 });
 
