@@ -21,10 +21,10 @@ const UserSchema = new Schema({
         unique: true,
         match: [/.+@.+\..+/]
     },
-    thoughts: {
+    thoughts: [{
         type: Schema.Types.ObjectId,
         ref: 'Thought'
-    },
+    }],
     friends: [ this ]
 }, {
     toJSON: {
@@ -39,10 +39,8 @@ UserSchema.virtual('friendCount').get(function () {
     return this.friends.length;
 });
 
-// UserSchema.virtual('friendId', {
-//     ref: 'User',
-//     localField: 'friends',
-//     foreignField: '__id'
+// UserSchema.virtual('friendId').get(function ()  {
+//     return this.friends.length;
 // });
 
 const User = model('User', UserSchema);
