@@ -25,14 +25,11 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Thought'
     },
-    friends: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }]
+    friends: [ this ]
 }, {
     toJSON: {
         virtuals: true,
-        //getters: true
+        getters: true
     },
     // the id false below prevents virtuals from making a duplicate _id as `id`
     id: false
@@ -41,6 +38,12 @@ const UserSchema = new Schema({
 UserSchema.virtual('friendCount').get(function () {
     return this.friends.length;
 });
+
+// UserSchema.virtual('friendId', {
+//     ref: 'User',
+//     localField: 'friends',
+//     foreignField: '__id'
+// });
 
 const User = model('User', UserSchema);
 
