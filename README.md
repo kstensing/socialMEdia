@@ -3,8 +3,7 @@
   ## Description
   This is the back end for a social media site.  Use this to create a database in MongoDB for your site.  There are API routes for POST, PUT, GET (all), GET (single), and DELETE for Users and Thoughts.  
   
-  ***********************UPDATE LINK
-  [DEMO VIDEO](https://drive.google.com/file/d/17VVXH4yPS_tZO88qY5D5RfnNE4GjRLfw/view)
+  [DEMO VIDEO](https://drive.google.com/file/d/1OvRpIKfziinFl0RT4MCGE9HYyYCvyGKZ/view)
 
   ## Table of Contents
 
